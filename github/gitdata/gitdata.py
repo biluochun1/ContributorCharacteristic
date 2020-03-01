@@ -1,8 +1,8 @@
-from gitdatablobs import GitDataBlobs
-from gitdatacommits import GitDataCommits
-from gitdatareferences import GitDataReferences
-from gitdatatags import GitDataTags
-from gitdatatrees import GitDataTrees
+from .gitdatablobs import GitDataBlobs
+from .gitdatacommits import GitDataCommits
+from .gitdatareferences import GitDataReferences
+from .gitdatatags import GitDataTags
+from .gitdatatrees import GitDataTrees
 
 class GitData:
     def __init__(self, github):

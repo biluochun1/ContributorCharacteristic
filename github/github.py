@@ -7,10 +7,12 @@ from .orgs import orgs
 from .users import users
 from .repos import repos
 
+
 class Github:
     apiurl = 'https://api.github.com'
+    suffix = "access_token=d939ed09b50aec69dbd920683a079169e8790c3c"
 
-    def __init__(self, username, password ):
+    def __init__(self, username, password):
         self.username = username
         self.password = password
         self.issues = issues.Issues(self)
@@ -39,49 +41,57 @@ class Github:
             raise Exception(
                 'Invalid httpVerb. Use: head, get, post, patch, put, delete')
 
-
     def head(self, url):
         url = self.__buildurl(url)
-        r = requests.head(url, auth = (self.username, self.password))
+        r = requests.head(url, auth=(self.username, self.password))
         return self.__buildResponse(r)
 
     def get(self, url):
         url = self.__buildurl(url)
-        r = requests.get(url, auth = (self.username, self.password))
+        # r = requests.get(url, auth=(self.username, self.password))
+        params = {
+            "access_token": "d939ed09b50aec69dbd920683a079169e8790c3c"
+        }
+        r = requests.get(url, params=params)
+        print(r.url)
         return self.__buildResponse(r)
 
     def post(self, url, data=None):
         url = self.__buildurl(url)
-        r = requests.post(url, data = data,
-                          auth = (self.username, self.password))
+        r = requests.post(url, data=data,
+                          auth=(self.username, self.password))
         return self.__buildResponse(r)
 
     def patch(self, url, data):
         url = self.__buildurl(url)
-        r = requests.patch(url, data = data,
-                           auth = (self.username, self.password))
+        r = requests.patch(url, data=data,
+                           auth=(self.username, self.password))
         return self.__buildResponse(r)
 
     def put(self, url, data=None):
         url = self.__buildurl(url)
-        r = requests.put(url, data = data,
-                         auth = (self.username, self.password))
+        r = requests.put(url, data=data,
+                         auth=(self.username, self.password))
         return self.__buildResponse(r)
 
     def delete(self, url, data=None):
         url = self.__buildurl(url)
-        r = requests.post(url, data = data,
-                          auth = (self.username, self.password))
+        r = requests.post(url, data=data,
+                          auth=(self.username, self.password))
         return self.__buildResponse(r)
 
     def __removeEmptyParams(self, params):
-        return dict((k,v) for k,v in params.iteritems() if v is not None)
+        return dict((k, v) for k, v in params.iteritems() if v is not None)
 
     def __buildurl(self, path):
+        print(Github.apiurl + (path if (path[0] is '/') else ('/%s' % path)))
         return Github.apiurl + (path if (path[0] is '/') else ('/%s' % path))
 
     def __buildResponse(self, response):
-        return {
-            "headers": json.dumps(dict(response.headers)),
-            "body": response.content
-        }
+        headers = json.dumps(dict(response.headers))
+        body = response.json()
+        # return {
+        #     "headers": json.dumps(dict(response.headers)),
+        #     "body": response.json()
+        # }
+        return headers, body

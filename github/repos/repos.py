@@ -84,7 +84,7 @@ class Repos:
     def listContributors(self, repo, user=None):
         username = self.__github.username if user is None else user
         return self.__github.get(
-            'repos/%s/%s/contributors' % (username, repo))
+            'repos/%s/%s/contributors?per_page=100' % (username, repo))
 
     def listLangs(self, repo, user=None ):
         username = self.__github.username if user is None else user
