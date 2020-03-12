@@ -10,7 +10,7 @@ from .repos import repos
 
 class Github:
     apiurl = 'https://api.github.com'
-    suffix = "access_token=d939ed09b50aec69dbd920683a079169e8790c3c"
+    suffix = "access_token=2f4b365d23ae0c315f1cd34b4f94243ce6b41436"
 
     def __init__(self, username, password):
         self.username = username
@@ -50,7 +50,7 @@ class Github:
         url = self.__buildurl(url)
         # r = requests.get(url, auth=(self.username, self.password))
         params = {
-            "access_token": "d939ed09b50aec69dbd920683a079169e8790c3c"
+            "access_token": "2f4b365d23ae0c315f1cd34b4f94243ce6b41436"
         }
         r = requests.get(url, params=params)
         print(r.url)

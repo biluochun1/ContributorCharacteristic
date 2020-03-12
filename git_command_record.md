@@ -11,4 +11,6 @@ git log --pretty='%aN' | sort -u | wc -l
 git log --oneline | wc -l
 # 统计代码总行数：
 find . -name "*.m" -or -name "*.h" -or -name "*.xib" -or -name "*.c" |xargs grep -v "^$"|wc -l
+# git2json command
+/Users/weizijian/anaconda3/bin/git2json
 ```
