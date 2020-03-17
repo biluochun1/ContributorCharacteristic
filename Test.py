@@ -11,11 +11,11 @@ def str2json(s):
 
 def run():
     g = github.Github(username=username, password=password)
-    # _, r = g.users.getUser()
+    _, r = g.users.getUser("Muxi-Yan")
     # user_dict = json.loads(r["body"].decode("utf-8"), encoding="utf-8")
-    # print(user_dict["login"])
-    resp = g.events.listRepoEvents(repo="grpc",user="Craig Tiller")
-    print(resp)
+    print(r)
+    # resp = g.events.listRepoEvents(repo="grpc",user="Craig Tiller")
+    # print(resp)
 
 
 
