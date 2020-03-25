@@ -14,6 +14,8 @@ def pca_analysis(x, n=2):
     pca = PCA(n_components=n)
     principal_components = pca.fit_transform(x)
     print(pca.explained_variance_ratio_)
+    # print(pca.n_features_)
+    # print(len(principal_components))
     return principal_components
 
 
