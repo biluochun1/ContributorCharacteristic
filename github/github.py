@@ -10,7 +10,7 @@ from .repos import repos
 
 class Github:
     apiurl = 'https://api.github.com'
-    suffix = "access_token=78854faee2ae023107ee2699c35d2229d194a36d"
+    suffix = "access_token="
 
     def __init__(self, username, password):
         self.username = username

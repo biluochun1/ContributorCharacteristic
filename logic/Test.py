@@ -1,5 +1,6 @@
 from github import github
 import json
+import numpy
 
 
 def str2json(s):
@@ -33,6 +34,29 @@ def parse_gitlog_json(path="/Users/weizijian/Downloads/bi_she_repo_download/grpc
     print(log[0])
 
 
+def parse_country_data(path="/Users/weizijian/PycharmProjects/ContributerCharacteristics/logic/contry_data.txt"):
+    co = []
+    pop = []
+    contry = []
+    with open(path, "r") as f:
+        for line in f.readlines():
+            s = line.strip().split("|")
+            contry.append(s[0])
+            co.append(int(s[1]))
+            pop.append(int(s[2]))
+    sum_co = sum(co)
+    nl = numpy.asarray(co)
+    real_co = (nl/sum_co)*500979
+    pop = numpy.asarray(pop)
+    print(real_co/pop*10000)
+
+# [59.41822138 39.11870724  9.78939912  8.19009771  7.83208589  7.62020462
+#   7.4869807   7.46690032  7.36598026  6.76110281  6.29039917  6.24912348
+#   5.90665512  5.82864022  5.79724134  5.40744529  4.47503026  4.31950775
+#   4.16977275  3.84049482  3.34982094  3.25296003  3.23615473  2.98495252
+#   2.66885922]
+
 if __name__ == '__main__':
-    run()
+    # run()
     # parse_4days_log()
+    parse_country_data()

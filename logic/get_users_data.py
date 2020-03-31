@@ -65,10 +65,7 @@ def parsing_data(path="data/spark_users_data.json", field="company"):
                 count_list.append(e[field])
             else:
                 count_list.append("default")
-        print(count_list)
-        print(len(count_list))
     _, l1, l2 = use_list_count(count_list)
-    print(l1, l2)
     return l1, l2
 
 

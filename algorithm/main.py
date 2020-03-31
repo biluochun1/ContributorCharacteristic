@@ -4,6 +4,7 @@ from algorithm.calcontri import cal_contri_from_list
 from algorithm.get_data import get_contri_data_from_file, parse_total_any_project_data
 from algorithm.analysis import linear_regression
 import numpy as np
+from matplotlib import pyplot as plt
 
 lines = []
 commit = []
@@ -16,19 +17,60 @@ def cal_all_contri_score():
         for i in range(len(p_name)):
             path = "/Users/weizijian/PycharmProjects/ContributerCharacteristics/data/contr_from_gitstats/" + p_name[
                 i] + "_contri.txt"
-            user, commit, add_line, del_line, age, active_day = get_contri_data_from_file(
+            user, commit, add_line, del_line, age, active_day, rank = get_contri_data_from_file(
                 path=path)
             # print(p_commit[i], p_line[i])
             user_line = np.asarray(add_line) + np.asarray(del_line)
             contris = cal_contri_from_list(total_line=p_line[i], total_commit=p_commit[i],
                                            single_user_line=user_line.tolist(),
                                            single_user_commit=commit)
-            context = p_name[i] + "\t" + str(user) + "\t" + str(contris) + "\n"
+            context = p_name[i] + "\t" + str(user) + "\t" + str(contris.tolist()) + "\n"
             fw.write(context)
+
+
+def cal_pca_res():
+    user, commit, add_line, del_line, age, active_day, rank = get_contri_data_from_file(
+        path="/Users/weizijian/PycharmProjects/ContributerCharacteristics/data/contr_from_gitstats/total_contri.txt")
+    print(len(user))
+    pdata = np.asarray(
+        [commit, add_line, del_line, age, active_day]).transpose()
+    standard_data = np.asarray(standardize_features(pdata))
+    standard_data = np.asarray(standard_data)
+    pca_res = pca_analysis(standard_data, 5)
+    pca_res = np.around(np.asarray(pca_res), decimals=3)
+    np.set_printoptions(suppress=True)
+    plt.scatter(pca_res[:, 0], pca_res[:, 1],
+                c=rank, edgecolor='none', alpha=0.5, cmap=plt.cm.get_cmap('Spectral', 5))
+    plt.xlabel('component 1')
+    plt.ylabel('component 2')
+    plt.colorbar()
+    plt.clim(0, 5)
+    plt.show()
+    print(pca_res)
+    print(pca_res.max())
+
+
+def cal_reconization():
+    user, commit, add_line, del_line, age, active_day, rank = get_contri_data_from_file(
+        path="/Users/weizijian/PycharmProjects/ContributerCharacteristics/data/contr_from_gitstats/total_contri.txt")
+
+    pdata = np.asarray(
+        [commit, add_line, del_line, age, active_day]).transpose()
+    standard_data = np.asarray(standardize_features(pdata))
+    x = np.around(np.asarray(standard_data[:, 4]), decimals=3)
+    y = np.around(np.asarray(standard_data[:, 0]), decimals=3)
+    np.set_printoptions(suppress=True)
+    print(x,y)
+    sumarry = linear_regression(x=x, y=y)
+
+    print("single_regression|" + str(1))
+    print(sumarry)
 
 
 if __name__ == '__main__':
     cal_all_contri_score()
+    # cal_pca_res()
+    # cal_reconization()
     # user, commit, add_line, del_line, age, active_day = get_contri_data_from_file(
     #     path="/Users/weizijian/PycharmProjects/ContributerCharacteristics/data/contr_from_gitstats/total_contri.txt")
     # user_line = np.asarray(add_line) + np.asarray(del_line)

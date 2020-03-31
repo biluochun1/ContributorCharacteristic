@@ -38,7 +38,7 @@ option = {
 };
 
 function genData(count) {
-    var nameList = ["commit", "add_line", "del_line", "age", "active_day"];
+    var nameList = ["comp.1", "comp.2", "comp.3", "comp.4", "comp.5"];
     var legendData = [];
     var seriesData = [];
     var selected = {};

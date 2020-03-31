@@ -8,6 +8,7 @@ def get_contri_data_from_file(path):
     user = []
     age = []
     active_day = []
+    rank = []
     with open(path, "r") as f:
         for line in f.readlines():
             info = line.strip().split("\t")
@@ -17,6 +18,7 @@ def get_contri_data_from_file(path):
             del_line.append(int(info[3]))
             age.append(int(info[6].split(' ')[0].strip()))
             active_day.append(int(info[7].strip()))
+            rank.append(int(info[8]))
             # print(info)
     # print(user, commit, add_line, del_line)
     add_line = numpy.asarray(add_line)
@@ -24,7 +26,8 @@ def get_contri_data_from_file(path):
     commit = numpy.asarray(commit)
     age = numpy.asarray(age)
     active_day = numpy.asarray(active_day)
-    return user, commit, add_line, del_line, age, active_day
+    rank = numpy.asarray(rank)
+    return user, commit, add_line, del_line, age, active_day, rank
 
 
 def parse_total_any_project_data(
