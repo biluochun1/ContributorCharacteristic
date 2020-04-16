@@ -12,6 +12,8 @@ git log --pretty='%aN' | sort -u | wc -l
 # 提交数量统计
 git log --oneline | wc -l
 # 统计代码总行数：
+# shellcheck disable=SC2038
 find . -name "*.m" -or -name "*.h" -or -name "*.xib" -or -name "*.c" | xargs grep -v "^$" | wc -l
+
 # git2json command
 /Users/weizijian/anaconda3/bin/git2json --git-dir ./FFmpeg/.git > ffmpeg-git-log.json

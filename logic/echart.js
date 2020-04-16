@@ -116,3 +116,18 @@ option = {
         }
     }]
 };
+
+option = {
+    xAxis: {
+        type: 'category',
+        data: ['Craig Tiller', 'Jan Tattermusch', 'Muxi Yan', 'Vijay Pai', 'Mark D. Roth', 'murgatroid99', 'David Garcia Quintas', 'Yash Tibrewal', 'Nicolas Noble', 'Sree Kuchibhotla', 'Nicolas "Pixel" Noble', 'yang-g', 'ncteisen', 'Lidi Zheng', 'Yang Gao', 'Yuchen Zeng', 'Tim Emiola', 'Stanley Cheung', 'Jorge Canizales', 'Mehrdad Afshari']
+
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [{
+        data: [0.6511, 0.2365, 0.0862, 0.0594, 0.1085, 0.0693, 0.0879, 0.0658, 0.0416, 0.0354, 0.0395, 0.0308, 0.0334, 0.0248, 0.0239, 0.0304, 0.0201, 0.0224, 0.037, 0.0174],
+        type: 'bar'
+    }]
+};

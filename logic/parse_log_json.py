@@ -89,6 +89,7 @@ if __name__ == '__main__':
                  ]
     # print(sum([408, 351, 297, 246, 246, 227, 218, 200, 184, 181, 151, 149, 148, 141, 139, 137, 127, 126, 125, 123]))
     sum = sum(country_l)
+    print(sum)
     nl = numpy.asarray(country_l)
     print((nl/sum)*500979)
     # for e in project_list:

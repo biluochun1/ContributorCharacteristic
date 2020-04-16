@@ -15,3 +15,14 @@ spring	['Juergen Hoeller', 'Rossen Stoyanchev', 'Sam Brannen', 'Arjen Poutsma', 
 threejs	['Mr.doob', 'Mugen87', 'alteredq', 'WestLangley', 'Ben Houston', 'Michael Herzog', 'Takahiro', 'Lewy Blue', 'Don McCurdy', 'sunag', 'Garrett Johnson', 'zz85', 'gero3', 'Fernando Serrano', 'Tristan VALCKE', 'aardgoose', 'tschw', 'Ricardo Cabello', 'gogoend', 'Tristan Valcke']	[1.007, 0.1347, 0.259, 0.0384, 0.0313, 0.0222, 0.0244, 0.0483, 0.0295, 0.0162, 0.0121, 0.0132, 0.0121, 0.0075, 0.0184, 0.0061, 0.0077, 0.0056, 0.0064, 0.0089]
 tidb	['Ewan Chou', 'tiancaiamao', 'siddontang', 'Han Fei', 'Shen Li', 'qiuyesuifeng', 'Lynn', 'shenli', 'HuaiyuXu', 'Haibin Xie', 'disksing', 'xia', 'crazycs', 'Yiding Cui', 'Jack Yu', 'goroutine', 'Jian Zhang', 'winkyao', 'lysu', 'zimulala']	[0.2687, 0.3287, 0.0651, 0.0839, 0.0697, 0.0439, 0.0452, 0.0442, 0.0459, 0.0415, 0.0604, 0.0304, 0.034, 0.039, 0.0457, 0.0219, 0.029, 0.0227, 0.0262, 0.021]
 vue	['Evan You', 'vue-bot', 'Hanks', 'kazuya kawaguchi', 'chengchao', 'Eduardo San Martin Morote', 'katashin', 'AchillesJ', 'Herrington Darkholme', 'JK', 'laoxiong', 'YOU', 'Phan An', 'Chris Fritz', 'Blake Newman', 'GU Yiling', 'kingwl', 'Jinjiang', 'Haoqun Jiang', 'Clark Du']	[1.7184, 0.023, 0.0256, 0.0146, 0.0119, 0.01, 0.0092, 0.0073, 0.0074, 0.0054, 0.0043, 0.0037, 0.004, 0.0041, 0.005, 0.0034, 0.0034, 0.0043, 0.003, 0.0026]
+
+fb.com	13079 (52.46%)
+gmail.com	6622 (26.56%)
+users.noreply.github.com	1211 (4.86%)
+nvidia.com	344 (1.38%)
+in.tum.de	278 (1.12%)
+mit.edu	222 (0.89%)
+topbug.net	211 (0.85%)
+iith.ac.in	146 (0.59%)
+collobert.com	140 (0.56%)
+beamnet.de	134 (0.54%)
