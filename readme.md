@@ -2,9 +2,10 @@
 ## Todo List
 - github爬虫 （Done）
 - 数据存储 (Done)
-- 分析算法
-- 开题报告
-- 论文
+- 分析算法（Done）
+- 开题报告（Done）
+- 论文（Done）
+
 
 ### github 爬虫
 目前封装在github包里面，完成 github api V3 版本 功能的封装
